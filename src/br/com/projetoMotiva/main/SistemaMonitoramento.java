@@ -49,7 +49,11 @@ public class SistemaMonitoramento {
                     System.out.println("=== RELATORIO UMIDADE ===");
                     for (TrechoRodovia trecho : trechos){
                         System.out.println(trecho.getKm() + "km:");
-                        motorPriorizacao.calcularCrescimento(trecho);
+                        if (trecho.isPossuiSensorIoT()){
+                            motorPriorizacao.calcularCrescimento(trecho);
+                        } else {
+                            System.out.println("Sem sensor Iot");
+                        }
                     }
                     break;
 

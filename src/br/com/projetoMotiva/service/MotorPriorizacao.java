@@ -15,10 +15,12 @@ public class MotorPriorizacao {
         else if (trecho.getAlturaVegetacao() > 1.5){
             RocadaMecanizada rocada = new RocadaMecanizada();
             trecho.transmitirDadosSensor();
+            calcularCrescimento(trecho);
             rocada.executarServico();
         } else {
             Pulverizacao pulverizacao = new Pulverizacao();
             trecho.transmitirDadosSensor();
+            calcularCrescimento(trecho);
             pulverizacao.executarServico();
         }
     }
@@ -38,22 +40,18 @@ public class MotorPriorizacao {
 
             if (trecho.getAlturaVegetacao() > 1.5){
                 System.out.println(trecho.getKm() + "km - " + "ALERTA: GRAMA ALTA");
-                calcularCrescimento(trecho);
                 decidirIot(trecho);
             }
             else if (trecho.getAlturaVegetacao() >= 1 && trecho.getAlturaVegetacao() <= 1.5){
                 System.out.println(trecho.getKm() + "km - " + "ALERTA: GRAMA MEDIA");
-                calcularCrescimento(trecho);
                 decidirIot(trecho);
             }
             else if (trecho.getAlturaVegetacao() < 1){
                 System.out.println(trecho.getKm() + "km - " + "ALERTA: GRAMA BAIXA");
-                calcularCrescimento(trecho);
                 decidirIot(trecho);
             }
             else {
                 System.out.println(trecho.getKm() + "km - " + "SEM ALERTAS");
-                calcularCrescimento(trecho);
             }
         }
     }

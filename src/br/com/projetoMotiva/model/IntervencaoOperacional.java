@@ -1,6 +1,6 @@
 package br.com.projetoMotiva.model;
 
-abstract class IntervencaoOperacional {
+public abstract class IntervencaoOperacional {
 
     abstract void executarServico();
 }

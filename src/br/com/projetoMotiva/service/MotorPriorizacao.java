@@ -23,23 +23,37 @@ public class MotorPriorizacao {
         }
     }
 
+    public void calcularCrescimento(TrechoRodovia trecho){
+        if (trecho.getUmidade() > 70){
+            System.out.println("ALERTA: Possivel crecimento mais rapido da grama");
+        } else if ( trecho.getUmidade() >= 40) {
+            System.out.println("ALERTA: Possivel crescimento um pouco mais rapido da grama");
+        } else {
+            System.out.println("Umidade normal - Sem alertas");
+        }
+    }
+
     public void analisarTrechos(ArrayList<TrechoRodovia> trechos){
         for (TrechoRodovia trecho : trechos){
 
             if (trecho.getAlturaVegetacao() > 1.5){
                 System.out.println(trecho.getKm() + "km - " + "ALERTA: GRAMA ALTA");
+                calcularCrescimento(trecho);
                 decidirIot(trecho);
             }
             else if (trecho.getAlturaVegetacao() >= 1 && trecho.getAlturaVegetacao() <= 1.5){
                 System.out.println(trecho.getKm() + "km - " + "ALERTA: GRAMA MEDIA");
+                calcularCrescimento(trecho);
                 decidirIot(trecho);
             }
             else if (trecho.getAlturaVegetacao() < 1){
                 System.out.println(trecho.getKm() + "km - " + "ALERTA: GRAMA BAIXA");
+                calcularCrescimento(trecho);
                 decidirIot(trecho);
             }
             else {
                 System.out.println(trecho.getKm() + "km - " + "SEM ALERTAS");
+                calcularCrescimento(trecho);
             }
         }
     }

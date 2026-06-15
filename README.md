@@ -277,4 +277,9 @@ Executando pulverização
 ## Integrantes
 
 **Miguel Vanucci Delgado** - RM: 563491
+
 **João Vitor** - RM: 566541
+
+**Samuel da Silva Nunes RM: 564435**
+
+**Henry dos Santos Lima RM: 565309**
